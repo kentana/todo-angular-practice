@@ -1,5 +1,5 @@
 class TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :set_todo, only: [:show, :update, :destroy, :star, :unstar, :done, :undone]
 
   # GET /todos
   def index
@@ -36,6 +36,38 @@ class TodosController < ApplicationController
   # DELETE /todos/1
   def destroy
     @todo.destroy
+  end
+
+  # PUT /todos/1/star
+  def star
+    params[:todo] = {
+      star: true,
+    }
+    self.update
+  end
+
+  # PUT /todos/1/unstar
+  def unstar
+    params[:todo] = {
+      star: false,
+    }
+    self.update
+  end
+
+  # PUT /todos/1/done
+  def done
+    params[:todo] = {
+      done: true,
+    }
+    self.update
+  end
+
+  # PUT /todos/1/undone
+  def undone
+    params[:todo] = {
+      done: false,
+    }
+    self.update
   end
 
   private
