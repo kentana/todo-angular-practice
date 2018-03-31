@@ -13,3 +13,8 @@ header {
 .logo {
   margin-left: 20px;
 }
+
+.contents {
+  color: rgba(0, 0, 0, 0.8);
+  margin-top: 70px;
+}
