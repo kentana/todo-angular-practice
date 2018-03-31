@@ -42,3 +42,6 @@ end
 
 # apline need this gem too. but platforms above do not include it.
 gem 'tzinfo-data'
+
+# add open api(swagger)
+gem 'swagger-blocks'
