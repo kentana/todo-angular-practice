@@ -13,4 +13,7 @@ Rails.application.routes.draw do
   patch 'todos/:id/unstar', to: 'todos#unstar'
   patch 'todos/:id/done', to: 'todos#done'
   patch 'todos/:id/undone', to: 'todos#undone'
+
+  # docs
+  get 'docs', to: 'docs#index'
 end
