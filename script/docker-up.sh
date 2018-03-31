@@ -19,7 +19,7 @@ docker-compose up -d
 sleep 5
 
 # create db.
-docker-compose run --rm app rails db:create
+docker-compose run --rm rails rails db:create
 
 # migrate db.
-docker-compose run --rm app rails db:migrate
+docker-compose run --rm rails rails db:migrate

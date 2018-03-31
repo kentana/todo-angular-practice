@@ -18,9 +18,3 @@ COPY Gemfile.lock $APPPATH
 
 # bundle install
 RUN bundle install
-
-# install npm
-
-# install angular-cli
-
-# get bootstrap

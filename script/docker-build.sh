@@ -8,12 +8,12 @@ cd ../
 # TODO: copying Gemfiles is temporary solution.
 # TODO: think flat structure.
 # copy Gemfiles to /docker/app
-cp Gemfile docker/app/
-cp Gemfile.lock docker/app/
+cp Gemfile docker/rails/
+cp Gemfile.lock docker/rails/
 
 # exec docker-compose up
 cd docker
 docker-compose build --no-cache
 
 # remove Gemfiles
-rm -rf app/Gemfile*
+rm -rf rails/Gemfile*
