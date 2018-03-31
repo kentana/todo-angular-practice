@@ -27,3 +27,14 @@ services:
       - "3306:3306"
     volumes:
       - ./mysql/conf.d:/etc/mysql/conf.d
+  angular:
+    container_name: todo
+    build: angular
+    command: >
+      ash -c
+      "npm install && ng serve"
+    volumes:
+      - ../front-example/ng/:/usr/src/app:z
+    ports:
+      - "4200:4200"
+

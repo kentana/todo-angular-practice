@@ -15,8 +15,8 @@ cd docker
 docker-compose up -d
 
 # TODO: temporary solution.
-# wait 5 sec.
-sleep 5
+# wait 10 sec.
+sleep 10
 
 # create db.
 docker-compose run --rm rails rails db:create
