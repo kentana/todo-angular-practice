@@ -27,6 +27,7 @@ class DocsController < ApplicationController
   # A list of all classes that have swagger_* declarations.
   SWAGGERED_CLASSES = [
     TodosController,
+    Todo,
     self,
   ].freeze
 

@@ -1,4 +1,6 @@
 class Todo < ApplicationRecord
+  include Swagger::Todo
+
   def initialize(params={})
     super(params)
 

@@ -1,4 +1,6 @@
 class TodosController < ApplicationController
+  include Swagger::TodosApi
+
   before_action :set_todo, only: [:show, :update, :destroy, :star, :unstar, :done, :undone]
 
   # GET /todos
