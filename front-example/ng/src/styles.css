@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+
+header {
+  background-color: rgb(23, 107, 204);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 65px;
+  width: 100%;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, .3);
+}
