@@ -5,7 +5,7 @@ services:
     build: app
     command: >
       ash -c
-      "bin/bundle install && bin/rails s -b 0.0.0.0"
+      "bin/rails s -b 0.0.0.0"
     # tty: true
     volumes:
       - ../:/usr/src/app:z
