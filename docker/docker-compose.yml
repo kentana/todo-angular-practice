@@ -1,0 +1,29 @@
+version: '3'
+services:
+  app:
+    container_name: todoApp
+    build: app
+    command: >
+      ash -c
+      "bin/bundle install && bin/rails s -b 0.0.0.0"
+    # tty: true
+    volumes:
+      - ../:/usr/src/app:z
+    ports:
+      - "3000:3000"
+    links:
+      - db
+  db:
+    container_name: todoDB
+    build: mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: secretsecret
+      MYSQL_USER: todo
+      MYSQL_PASSWORD: secret
+      MYSQL_DATABASE: todo
+      TZ: Asia/Tokyo
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql/conf.d:/etc/mysql/conf.d
