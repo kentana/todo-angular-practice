@@ -66,7 +66,7 @@ module Swagger::TodosApi
     swagger_path '/todos/{id}' do
       # show
       operation :get do
-        key :summary, 'Find a Todo by ID'
+        key :summary, 'Finds a Todo by ID'
         key :description, 'Returns a single todo.'
         key :operationId, :findTodoById
         key :tags, [
@@ -179,7 +179,7 @@ module Swagger::TodosApi
 
       # destroy
       operation :delete do
-        key :summary, 'Delete the Todo.'
+        key :summary, 'Deletes the Todo.'
         key :description, 'return nothing.'
         key :operationId, :deleteTodo
         key :tags, [
