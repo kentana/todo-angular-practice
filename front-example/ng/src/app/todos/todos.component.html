@@ -5,7 +5,7 @@
       <!-- current undone todo is empty, show message. -->
       <ng-container *ngIf="undoneTodos().length === 0">
         <div class="empty-message">
-          you don't have any tasks now.
+          You don't have any tasks to do now.
           <br> You can add a new task below.
         </div>
       </ng-container>
@@ -27,7 +27,7 @@
     <ng-template ngbTabContent>
       <ng-container *ngIf="starrdTodos().length === 0">
         <div class="empty-message">
-          starred task will show here.
+          starred task to do will show here.
         </div>
       </ng-container>
 
