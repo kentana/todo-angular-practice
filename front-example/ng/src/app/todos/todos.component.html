@@ -2,6 +2,13 @@
   <!-- all undone todo -->
   <ngb-tab title="all">
     <ng-template ngbTabContent>
+      <!-- current undone todo is empty, show message. -->
+      <ng-container *ngIf="undoneTodos().length === 0">
+        <div class="empty-message">
+          you don't have any tasks now.
+          <br> You can add a new task below.
+        </div>
+      </ng-container>
 
       <ng-container *ngFor="let todo of undoneTodos()">
         <div class="todo">
@@ -18,6 +25,12 @@
   <!-- starrd todo -->
   <ngb-tab title="starred">
     <ng-template ngbTabContent>
+      <ng-container *ngIf="starrdTodos().length === 0">
+        <div class="empty-message">
+          starred task will show here.
+        </div>
+      </ng-container>
+
       <ng-container *ngFor="let todo of starrdTodos()">
         <div class="todo">
           <app-todo [todo]="todo" (todoUpdate)="getTodos()"></app-todo>
@@ -29,6 +42,12 @@
   <!-- done todo -->
   <ngb-tab title="done">
     <ng-template ngbTabContent>
+      <ng-container *ngIf="doneTodos().length === 0">
+        <div class="empty-message">
+          finished task will show here.
+        </div>
+      </ng-container>
+
       <ng-container *ngFor="let todo of doneTodos()">
         <div class="todo">
           <app-todo [todo]="todo" (todoUpdate)="getTodos()"></app-todo>
