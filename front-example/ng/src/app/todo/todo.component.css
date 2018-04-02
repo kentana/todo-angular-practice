@@ -1,0 +1,35 @@
+/* area */
+
+.todo {
+  margin-top: 10px;
+  margin-left: 10px;
+  width: 100%;
+}
+
+.todo>span {
+  display: inline-block;
+}
+
+.checkbox-area {
+  width: 5%;
+}
+
+.name-area {
+  width: 30%;
+}
+
+.icon-area {}
+
+/* icon */
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon.star {
+  color: orange;
+}
+
+.icon.checked {
+  color: green;
+}

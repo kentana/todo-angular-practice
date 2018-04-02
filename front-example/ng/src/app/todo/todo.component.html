@@ -1,0 +1,33 @@
+<div class="todo">
+  <!-- checkbox -->
+  <span class="checkbox-area">
+    <ng-container *ngIf="todo.done">
+      <i class="icon check checked far fa-check-square"></i>
+    </ng-container>
+    <ng-container *ngIf="!todo.done">
+      <i class="icon check far fa-square"></i>
+    </ng-container>
+  </span>
+
+  <!-- name -->
+  <span class="name-area">
+    {{todo.name}}
+  </span>
+
+  <!-- clickable icons -->
+  <span class="icon-area">
+    <!-- star -->
+    <ng-container *ngIf="todo.star">
+      <i class="icon star starred fas fa-star"></i>
+    </ng-container>
+    <ng-container *ngIf="!todo.star">
+      <i class="icon star far fa-star"></i>
+    </ng-container>
+
+    <!-- edit -->
+    <i class="icon fas fa-edit"></i>
+
+    <!-- trush -->
+    <i class="icon far fa-trash-alt"></i>
+  </span>
+</div>

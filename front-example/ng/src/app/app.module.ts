@@ -7,12 +7,14 @@ import { AppComponent } from './app.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoService } from './todo.service';
 import { HttpClientModule } from '@angular/common/http';
+import { TodoComponent } from './todo/todo.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
+    TodoComponent,
   ],
   imports: [
     BrowserModule,
