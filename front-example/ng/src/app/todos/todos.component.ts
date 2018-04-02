@@ -51,4 +51,14 @@ export class TodosComponent implements OnInit {
   doneTodos(): Todo[] {
     return this.todos.filter(i => i.done);
   }
+
+  /**
+   * add an empty todo.
+   * @returns void
+   */
+  addTodo(): void {
+    this.todoService.addTodo(new Todo()).subscribe((res) => {
+      this.getTodos();
+    });
+  }
 }
