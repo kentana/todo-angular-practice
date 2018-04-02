@@ -34,6 +34,7 @@ services:
       ash -c
       "npm install && ng serve"
     volumes:
+      # - ../front/ng/:/usr/src/app:z
       - ../front-example/ng/:/usr/src/app:z
     ports:
       - "4200:4200"
