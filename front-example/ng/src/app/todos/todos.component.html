@@ -1,3 +1,39 @@
-<p>
-  todos works!
-</p>
+<ngb-tabset>
+  <!-- all undone todo -->
+  <ngb-tab title="all">
+    <ng-template ngbTabContent>
+
+      <ng-container *ngFor="let todo of undoneTodos()">
+        <div class="todo">
+          <app-todo [todo]="todo"></app-todo>
+        </div>
+      </ng-container>
+
+      <div class="button-area">
+        <button type="button" class="btn btn-primary add">add</button>
+      </div>
+    </ng-template>
+  </ngb-tab>
+
+  <!-- starrd todo -->
+  <ngb-tab title="starred">
+    <ng-template ngbTabContent>
+      <ng-container *ngFor="let todo of starrdTodos()">
+        <div class="todo">
+          <app-todo [todo]="todo"></app-todo>
+        </div>
+      </ng-container>
+    </ng-template>
+  </ngb-tab>
+
+  <!-- done todo -->
+  <ngb-tab title="done">
+    <ng-template ngbTabContent>
+      <ng-container *ngFor="let todo of doneTodos()">
+        <div class="todo">
+          <app-todo [todo]="todo"></app-todo>
+        </div>
+      </ng-container>
+    </ng-template>
+  </ngb-tab>
+</ngb-tabset>

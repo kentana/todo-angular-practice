@@ -23,4 +23,16 @@ export class TodosComponent implements OnInit {
     this.todoService.getTodoes()
       .subscribe(todos => this.todos = todos);
   }
+
+  undoneTodos(): Todo[] {
+    return this.todos.filter(i => !i.done);
+  }
+
+  starrdTodos(): Todo[] {
+    return this.undoneTodos().filter(i => i.star);
+  }
+
+  doneTodos(): Todo[] {
+    return this.todos.filter(i => i.done);
+  }
 }
