@@ -9,8 +9,10 @@ import { TodoService } from '../todo.service';
 })
 export class TodoComponent implements OnInit {
   private _todo: Todo;
+  private _editing = false;
 
   get todo(): Todo { return this._todo; }
+  get editing(): boolean { return this._editing; }
 
   @Input()
   set todo(todo: Todo) {
@@ -27,52 +29,64 @@ export class TodoComponent implements OnInit {
   }
 
   /**
-   * delete given todo.
-   * @param  {Todo} todo
+   * delete todo.
    */
-  deleteTodo(todo: Todo) {
-    this.todoService.deleteTodo(todo).subscribe((res) => {
+  deleteTodo() {
+    this.todoService.deleteTodo(this.todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
 
   /**
-   * star given todo.
-   * @param  {Todo} todo
+   * star todo.
    */
-  starTodo(todo: Todo) {
-    this.todoService.starTodo(todo).subscribe((res) => {
+  starTodo() {
+    this.todoService.starTodo(this.todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
 
   /**
-   * unstar given todo.
-   * @param  {Todo} todo
+   * unstar todo.
    */
-  unstarTodo(todo: Todo) {
-    this.todoService.unstarTodo(todo).subscribe((res) => {
+  unstarTodo() {
+    this.todoService.unstarTodo(this.todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
 
   /**
-   * done given todo.
-   * @param  {Todo} todo
+   * done todo.
    */
-  doneTodo(todo: Todo) {
+  doneTodo() {
     console.log('done todo');
-    this.todoService.doneTodo(todo).subscribe((res) => {
+    this.todoService.doneTodo(this.todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
 
   /**
-   * undone given todo.
-   * @param  {Todo} todo
+   * undone todo.
    */
-  undoneTodo(todo: Todo) {
-    this.todoService.undoneTodo(todo).subscribe((res) => {
+  undoneTodo() {
+    this.todoService.undoneTodo(this.todo).subscribe((res) => {
+      this.todoUpdate.emit();
+    });
+  }
+
+  /**
+   * edit todo.
+   */
+  editTodo() {
+    this._editing = true;
+  }
+
+  /**
+  * save todo.
+  */
+  saveTodo() {
+    this._editing = false;
+    this.todoService.updateTodo(this.todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }

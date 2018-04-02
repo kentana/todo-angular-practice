@@ -20,6 +20,12 @@
 
 .icon-area {}
 
+/* textbox */
+
+.text {
+  width: 90%;
+}
+
 /* icon */
 
 .icon-button {

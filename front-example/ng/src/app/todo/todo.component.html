@@ -15,7 +15,13 @@
 
   <!-- name -->
   <span class="name-area">
-    {{todo.name}}
+    <ng-container *ngIf="editing">
+      <input class="text" [(ngModel)]="todo.name" placeholder="todo name." (blur)="saveTodo()">
+    </ng-container>
+
+    <ng-container *ngIf="!editing">
+      {{todo.name}}
+    </ng-container>
   </span>
 
   <!-- clickable icons -->
@@ -33,9 +39,11 @@
     </ng-container>
 
     <!-- edit -->
-    <button type="button" class="icon-button" (click)="editTodo(todo)">
-      <i class="icon fas fa-edit"></i>
-    </button>
+    <ng-container *ngIf="!editing">
+      <button type="button" class="icon-button" (click)="editTodo(todo)">
+        <i class="icon fas fa-edit"></i>
+      </button>
+    </ng-container>
 
     <!-- trush -->
     <button type="button" class="icon-button" (click)="deleteTodo(todo)">
