@@ -26,28 +26,51 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
+  /**
+   * delete given todo.
+   * @param  {Todo} todo
+   */
   deleteTodo(todo: Todo) {
     this.todoService.deleteTodo(todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
 
+  /**
+   * star given todo.
+   * @param  {Todo} todo
+   */
   starTodo(todo: Todo) {
     this.todoService.starTodo(todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
+
+  /**
+   * unstar given todo.
+   * @param  {Todo} todo
+   */
   unstarTodo(todo: Todo) {
     this.todoService.unstarTodo(todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
+
+  /**
+   * done given todo.
+   * @param  {Todo} todo
+   */
   doneTodo(todo: Todo) {
     console.log('done todo');
     this.todoService.doneTodo(todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
   }
+
+  /**
+   * undone given todo.
+   * @param  {Todo} todo
+   */
   undoneTodo(todo: Todo) {
     this.todoService.undoneTodo(todo).subscribe((res) => {
       this.todoUpdate.emit();

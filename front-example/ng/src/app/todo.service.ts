@@ -66,7 +66,7 @@ export class TodoService {
     );
   }
 
-  // star / unstar
+  // star todo.
   starTodo(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}/star`;
     return this.http.put(url, {}, httpOptions).pipe(
@@ -74,6 +74,8 @@ export class TodoService {
       catchError(this.handleError<any>('starTodo'))
     );
   }
+
+  // unstar todo.
   unstarTodo(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}/unstar`;
     return this.http.put(url, {}, httpOptions).pipe(
@@ -82,7 +84,7 @@ export class TodoService {
     );
   }
 
-  // done / undone
+  // done todo.
   doneTodo(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}/done`;
     return this.http.put(url, {}, httpOptions).pipe(
@@ -90,6 +92,8 @@ export class TodoService {
       catchError(this.handleError<any>('doneTodo'))
     );
   }
+
+  // undone todo.
   undoneTodo(todo: Todo): Observable<any> {
     const url = `${this.todosUrl}/${todo.id}/undone`;
     return this.http.put(url, {}, httpOptions).pipe(
