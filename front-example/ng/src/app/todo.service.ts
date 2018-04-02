@@ -40,11 +40,7 @@ export class TodoService {
 
   //  add new todo.
   addTodo(todo: Todo): Observable<Todo> {
-    const params = {
-      todo: todo,
-    };
-
-    return this.http.post<Todo>(this.todosUrl, params, httpOptions).pipe(
+    return this.http.post<Todo>(this.todosUrl, todo, httpOptions).pipe(
       tap(res => this.log(`added todo`)),
       catchError(this.handleError<Todo>('addTodo'))
     );
