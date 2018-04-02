@@ -22,6 +22,10 @@
 
 /* icon */
 
+.icon-button {
+  border: none;
+}
+
 .icon:hover {
   cursor: pointer;
 }

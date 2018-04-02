@@ -2,10 +2,14 @@
   <!-- checkbox -->
   <span class="checkbox-area">
     <ng-container *ngIf="todo.done">
-      <i class="icon check checked far fa-check-square"></i>
+      <button type="button" class="icon-button" (click)="undoneTodo(todo)">
+        <i class="icon check checked far fa-check-square"></i>
+      </button>
     </ng-container>
     <ng-container *ngIf="!todo.done">
-      <i class="icon check far fa-square"></i>
+      <button type="button" class="icon-button" (click)="doneTodo(todo)">
+        <i class="icon check far fa-square"></i>
+      </button>
     </ng-container>
   </span>
 
@@ -18,16 +22,24 @@
   <span class="icon-area">
     <!-- star -->
     <ng-container *ngIf="todo.star">
-      <i class="icon star starred fas fa-star"></i>
+      <button type="button" class="icon-button" (click)="unstarTodo(todo)">
+        <i class="icon star starred fas fa-star"></i>
+      </button>
     </ng-container>
     <ng-container *ngIf="!todo.star">
-      <i class="icon star far fa-star"></i>
+      <button type="button" class="icon-button" (click)="starTodo(todo)">
+        <i class="icon star far fa-star"></i>
+      </button>
     </ng-container>
 
     <!-- edit -->
-    <i class="icon fas fa-edit"></i>
+    <button type="button" class="icon-button" (click)="editTodo(todo)">
+      <i class="icon fas fa-edit"></i>
+    </button>
 
     <!-- trush -->
-    <i class="icon far fa-trash-alt"></i>
+    <button type="button" class="icon-button" (click)="deleteTodo(todo)">
+      <i class="icon far fa-trash-alt"></i>
+    </button>
   </span>
 </div>

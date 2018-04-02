@@ -59,7 +59,8 @@ export class TodoService {
 
   // update todo.
   updateTodo(todo: Todo): Observable<any> {
-    return this.http.put(this.todosUrl, todo, httpOptions).pipe(
+    const url = `${this.todosUrl}/${todo.id}`;
+    return this.http.put(url, todo, httpOptions).pipe(
       tap(res => this.log(`updated todo`)),
       catchError(this.handleError<any>('updateTodo'))
     );
@@ -67,14 +68,14 @@ export class TodoService {
 
   // star / unstar
   starTodo(todo: Todo): Observable<any> {
-    const url = `${this.todosUrl}/star`;
+    const url = `${this.todosUrl}/${todo.id}/star`;
     return this.http.put(url, {}, httpOptions).pipe(
       tap(res => this.log(`starred todo`)),
       catchError(this.handleError<any>('starTodo'))
     );
   }
   unstarTodo(todo: Todo): Observable<any> {
-    const url = `${this.todosUrl}/unstar`;
+    const url = `${this.todosUrl}/${todo.id}/unstar`;
     return this.http.put(url, {}, httpOptions).pipe(
       tap(res => this.log(`unstarred todo`)),
       catchError(this.handleError<any>('unstarTodo'))
@@ -83,14 +84,14 @@ export class TodoService {
 
   // done / undone
   doneTodo(todo: Todo): Observable<any> {
-    const url = `${this.todosUrl}/done`;
+    const url = `${this.todosUrl}/${todo.id}/done`;
     return this.http.put(url, {}, httpOptions).pipe(
       tap(res => this.log(`done todo`)),
       catchError(this.handleError<any>('doneTodo'))
     );
   }
   undoneTodo(todo: Todo): Observable<any> {
-    const url = `${this.todosUrl}/undone`;
+    const url = `${this.todosUrl}/${todo.id}/undone`;
     return this.http.put(url, {}, httpOptions).pipe(
       tap(res => this.log(`undone todo`)),
       catchError(this.handleError<any>('undoneTodo'))

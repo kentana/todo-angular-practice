@@ -9,7 +9,7 @@ import { Todo } from '../todo';
   styleUrls: ['./todos.component.css']
 })
 export class TodosComponent implements OnInit {
-  todos: Todo[];
+  todos: Todo[] = [];
 
   constructor(
     private todoService: TodoService,

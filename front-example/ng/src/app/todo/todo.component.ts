@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Todo } from '../todo';
 import { TodoService } from '../todo.service';
 
@@ -17,6 +17,8 @@ export class TodoComponent implements OnInit {
     this._todo = todo;
   }
 
+  @Output() todoUpdate = new EventEmitter();
+
   constructor(
     private todoService: TodoService,
   ) { }
@@ -24,8 +26,31 @@ export class TodoComponent implements OnInit {
   ngOnInit() {
   }
 
-  starTodo() { }
-  unstarTodo() { }
-  doneTodo() { }
-  undoneTodo() { }
+  deleteTodo(todo: Todo) {
+    this.todoService.deleteTodo(todo).subscribe((res) => {
+      this.todoUpdate.emit();
+    });
+  }
+
+  starTodo(todo: Todo) {
+    this.todoService.starTodo(todo).subscribe((res) => {
+      this.todoUpdate.emit();
+    });
+  }
+  unstarTodo(todo: Todo) {
+    this.todoService.unstarTodo(todo).subscribe((res) => {
+      this.todoUpdate.emit();
+    });
+  }
+  doneTodo(todo: Todo) {
+    console.log('done todo');
+    this.todoService.doneTodo(todo).subscribe((res) => {
+      this.todoUpdate.emit();
+    });
+  }
+  undoneTodo(todo: Todo) {
+    this.todoService.undoneTodo(todo).subscribe((res) => {
+      this.todoUpdate.emit();
+    });
+  }
 }
