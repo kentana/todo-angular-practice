@@ -1,3 +1,9 @@
+.description-area {
+  margin-left: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
 .page-title {
   font-weight: normal;
 }
