@@ -11,9 +11,8 @@ cd ../
 cp Gemfile docker/rails/
 cp Gemfile.lock docker/rails/
 
-# TODO: example now.
-cp front-example/ng/package.json docker/angular/
-cp front-example/ng/package-lock.json docker/angular/
+cp front/ng/package.json docker/angular/
+cp front/ng/package-lock.json docker/angular/
 
 # exec docker-compose up
 cd docker

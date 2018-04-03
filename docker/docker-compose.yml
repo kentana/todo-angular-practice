@@ -6,7 +6,6 @@ services:
     command: >
       ash -c
       "bin/rails s -b 0.0.0.0"
-    # tty: true
     volumes:
       - ../:/usr/src/app:z
     ports:
@@ -32,10 +31,9 @@ services:
     build: angular
     command: >
       ash -c
-      "npm install && ng serve"
+      "npm install && node_modules/.bin/ng serve"
     volumes:
-      # - ../front/ng/:/usr/src/app:z
-      - ../front-example/ng/:/usr/src/app:z
+      - ../front/ng/:/usr/src/app:z
     ports:
       - "4200:4200"
 
