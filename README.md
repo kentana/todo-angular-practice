@@ -29,6 +29,8 @@ Japanese guide is [here](https://github.com/kentana/todo-angular-practice/wiki/G
 
 * How to build front example.
 
+`this commands needs to change Dockerfile.`
+
   1. build front example.   
     `$ ./script/ng-build-example.sh`
   2. you can access front example in `http://localhost:3000/front-example/index.html`
