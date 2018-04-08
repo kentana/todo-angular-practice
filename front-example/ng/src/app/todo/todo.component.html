@@ -16,11 +16,39 @@
   <!-- name -->
   <span class="name-area">
     <ng-container *ngIf="editing">
-      <input class="text" [(ngModel)]="todo.name" placeholder="todo name." (blur)="saveTodo()">
+      <input class="text" [(ngModel)]="todo.name" placeholder="todo name.">
     </ng-container>
 
     <ng-container *ngIf="!editing">
       {{todo.name}}
+    </ng-container>
+  </span>
+
+  <!-- due date -->
+  <span class="name-area">
+    <ng-container *ngIf="editing">
+      <form class="form-inline">
+        <div class="form-group">
+          <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="todo.dueDateObj" ngbDatepicker #d="ngbDatepicker">
+            <div class="input-group-append">
+              <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button">
+                <i class="far fa-calendar-alt"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </ng-container>
+
+    <ng-container *ngIf="!editing">
+      <ng-container *ngIf="todo.due_date">
+        {{todo.due_date}}
+      </ng-container>
+
+      <ng-container *ngIf="!todo.due_date">
+        no due date.
+      </ng-container>
     </ng-container>
   </span>
 
@@ -42,6 +70,13 @@
     <ng-container *ngIf="!editing">
       <button type="button" class="icon-button" (click)="editTodo()">
         <i class="icon fas fa-edit"></i>
+      </button>
+    </ng-container>
+
+    <!-- save -->
+    <ng-container *ngIf="editing">
+      <button type="button" class="icon-button" (click)="saveTodo()">
+        <i class="icon fas fa-save"></i>
       </button>
     </ng-container>
 

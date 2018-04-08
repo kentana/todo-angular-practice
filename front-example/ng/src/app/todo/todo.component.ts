@@ -26,6 +26,15 @@ export class TodoComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    // set due_date to obj.
+    if (this.todo.due_date) {
+      const splitDate = this.todo.due_date.split('-').map(i => Number(i));
+      this.todo.dueDateObj = {
+        year: splitDate[0],
+        month: splitDate[1],
+        day: splitDate[2],
+      };
+    }
   }
 
   /**
@@ -86,6 +95,10 @@ export class TodoComponent implements OnInit {
   */
   saveTodo() {
     this._editing = false;
+
+    // convert due_date object to hypen devide string.
+    this.todo.due_date = `${this.todo.dueDateObj.year}-${this.todo.dueDateObj.month}-${this.todo.dueDateObj.day}`;
+
     this.todoService.updateTodo(this.todo).subscribe((res) => {
       this.todoUpdate.emit();
     });
